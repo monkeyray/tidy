@@ -1,4 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/tidy/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><link rel="manifest" href="/tidy/manifest.json"/><script>window.addEventListener('beforeinstallprompt', (e) => {
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/tidy/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><link rel="manifest" href="/tidy/manifest.json"/><script>console.log('Adding event listener');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         // Stash the event so it can be triggered later.
