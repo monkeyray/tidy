@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tidy",
+  "name": "Tidy: Cleaning Organizer",
   "icons": [
     {
       "src": "images/tidy.png",
