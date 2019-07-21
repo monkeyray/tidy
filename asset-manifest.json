@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tidy/static/css/main.f0a9e829.chunk.css",
-    "main.js": "/tidy/static/js/main.b85d9c5d.chunk.js",
-    "main.js.map": "/tidy/static/js/main.b85d9c5d.chunk.js.map",
+    "main.css": "/tidy/static/css/main.88044bf2.chunk.css",
+    "main.js": "/tidy/static/js/main.efa3da2c.chunk.js",
+    "main.js.map": "/tidy/static/js/main.efa3da2c.chunk.js.map",
     "runtime~main.js": "/tidy/static/js/runtime~main.691d123c.js",
     "runtime~main.js.map": "/tidy/static/js/runtime~main.691d123c.js.map",
-    "static/js/2.eec4880c.chunk.js": "/tidy/static/js/2.eec4880c.chunk.js",
-    "static/js/2.eec4880c.chunk.js.map": "/tidy/static/js/2.eec4880c.chunk.js.map",
+    "static/js/2.ceca60b0.chunk.js": "/tidy/static/js/2.ceca60b0.chunk.js",
+    "static/js/2.ceca60b0.chunk.js.map": "/tidy/static/js/2.ceca60b0.chunk.js.map",
     "index.html": "/tidy/index.html",
-    "precache-manifest.102d6cdaa7411f7725466c81a635770e.js": "/tidy/precache-manifest.102d6cdaa7411f7725466c81a635770e.js",
+    "precache-manifest.5c37584a6fb8b08d08462e00a1f0fcdf.js": "/tidy/precache-manifest.5c37584a6fb8b08d08462e00a1f0fcdf.js",
     "service-worker.js": "/tidy/service-worker.js",
-    "static/css/main.f0a9e829.chunk.css.map": "/tidy/static/css/main.f0a9e829.chunk.css.map"
+    "static/css/main.88044bf2.chunk.css.map": "/tidy/static/css/main.88044bf2.chunk.css.map"
   }
 }
