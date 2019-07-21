@@ -1,0 +1,14 @@
+.list-header {
+    background-color: hsla(247, 60%, 50%, 1);
+    padding: 8px 16px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 2px 1px 1px #00000038;
+    flex-direction: row;
+    align-items: center;
+    position: sticky;
+    top: 56px;
+}
+.icon {
+    margin-right:8px;
+}

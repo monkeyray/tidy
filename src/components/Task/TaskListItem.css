@@ -1,0 +1,49 @@
+
+.task {
+    background-color: white;
+    padding: 16px 16px;
+    border-radius: 12px;
+    box-shadow: 1px 2px 2px 1px #00000012;
+    flex-direction: row;
+}
+.task:not(:last-child) {
+    margin-bottom: 8px;
+}
+.task__info {
+    padding: 0 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.task__description {
+    color: #777;
+
+}
+.task__time {
+    justify-content: center;
+}
+.task__state {
+    justify-content: center;
+}
+.checkbox {
+    border: 2px solid #c1c1c1;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    color: #32c145;
+    font-size: 36px;
+    padding-bottom: 6px;
+    padding-left: 3px;
+}
+.animation__check {
+    animation: animation__check 350ms cubic-bezier(0.18, 0.89, 0.63, 1.33);
+}
+@keyframes animation__check {
+    from {
+        font-size: 60px;
+    }
+    to {
+
+    }
+}

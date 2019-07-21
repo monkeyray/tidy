@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+div {
+  display:flex;
+  flex-direction: column;
+}
+
 body {
-  background-color: #e4e4e4;
+  background-color: #e2e2e2;
+  font-family: 'Bree Serif', serif;
+}
+
+.spacer {
+  flex-grow: 1;
 }
