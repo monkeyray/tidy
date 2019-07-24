@@ -1,18 +1,36 @@
-import React, { useState, SyntheticEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TaskDialog.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faCalendarCheck, faClipboardList } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faCalendarCheck, faClipboardList, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Task } from '../../types/task';
 
 export const TaskDialog = (props: any) => {
+    const [editMode, setEditMode] = useState(false);
     const [taskName, setTaskName] = useState('');
-    const [taskDeadline, setTaskDeadline] = useState(new Date().toISOString().substr(0,10));
+    const [taskDeadline, setTaskDeadline] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
 
+    useEffect(() => {
+        if(props.task) {
+            setTaskName(props.task.name);
+            setTaskDeadline(new Date(props.task.deadline).toISOString().substr(0,10));
+            setTaskDescription(props.task.description);
+
+            if(props.task.id >= 0) {
+                setEditMode(true);
+            }
+        } else {    
+            setTaskName('');
+            setTaskDeadline('');
+            setTaskDescription('');
+            setEditMode(false);
+        }
+    });
+
     return (
-    <div className={'dialog-container' + (props.open ? ' open' : '')}>
+    <div className={'dialog-container' + (props.task ? ' open' : '')}>
         <div className="task-dialog">
-            <div className="dialog-header">Create a new task</div>
+            <div className="dialog-header">{ editMode ? 'Adjust task' : 'Add task' }</div>
             <div className="dialog-content">
                 <div className="input-container">
                     <div className="input-title">
@@ -48,7 +66,13 @@ export const TaskDialog = (props: any) => {
             </div>
             <div className="dialog-actions">
                 <button onClick={() => props.onClose()}>Cancel</button>
-                <button onClick={() => props.onSubmit(new Task(taskName, taskDescription, +new Date(taskDeadline)))} className="button--type-success">Accept</button>
+                <button disabled={taskName === '' || taskDescription === ''} onClick={() => {
+                        const task = props.task.setDetails(taskName, taskDescription, +new Date(taskDeadline));
+                        props.onSubmit(task);
+                    }} className="button--type-success">
+                    <FontAwesomeIcon icon={faCheck} />
+                    <div className="button__text">Accept</div>
+                </button>
             </div>
         </div>
     </div>) 

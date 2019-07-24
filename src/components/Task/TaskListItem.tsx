@@ -8,15 +8,17 @@ import { Task } from "../../types/task";
 const TaskListItem = (props: any) => {
     const [task, setTask] = useState<Task>(props.task);
 
-    return(<div className="task" onClick={() => {
+    return(<div className="task">
+                <div className="task__state" onClick={() => {
                     setTask(task.toggleComplete());
-                } }>
-                <div className="task__state">
+                 }}>
                     <div className="checkbox">
                         { task.isCompleted() ? <div className="animation__check" ><FontAwesomeIcon icon={faCheck} /></div> : '' }
                     </div>
                 </div>
-                <div className="task__info">
+                <div className="task__info" onClick={() => {
+                    props.onClickTask(task);
+                 }}>
                     <div className="task__name">{task.name}</div>
                     <div className="task__description">{task.description}</div>                
                 </div>

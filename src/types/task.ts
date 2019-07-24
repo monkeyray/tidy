@@ -4,31 +4,57 @@ export class Task {
     completed: number;
     created: number;
     deadline: number;
-    repeat: number;
+    repeat: number;    
+    id: number;
 
     constructor(name: string = 'Example task name', 
                 description: string = 'Example task description',
-                deadline: number = 0,
+                deadline: number = +new Date(),
                 repeat: number = 0,
                 completed: number = 0,
-                created: number = +new Date()) {
+                created: number = +new Date(),
+                id: number = -1) {
         this.name = name;
         this.description = description;  
         this.deadline = deadline;
         this.repeat = repeat;
         this.completed = completed;
         this.created = created;
+        this.id = id;
+    }
+
+    getCopy(name: string = this.name,
+            description: string = this.description,
+            deadline: number = this.deadline,
+            repeat: number = this.repeat,
+            completed: number = this.completed,
+            created: number = this.created,
+            id: number = this.id) {
+        return new Task(
+            name,
+            description,
+            deadline,
+            repeat,
+            completed,
+            created,
+            id
+        );
+    }
+
+    setDetails( name: string = this.name,
+                description: string = this.description,
+                deadline: number = this.deadline) {
+        return this.getCopy(name, description, deadline);
+    }
+
+    setId(id: number) {
+        const _ = undefined;
+        return this.getCopy(_,_,_,_,_,_,id);
     }
 
     toggleComplete() {
-        return new Task(
-            this.name,
-            this.description,
-            this.deadline,
-            this.repeat,
-            this.isCompleted() ? 0 : +new Date(),
-            this.created
-        );
+        const _ = undefined;
+        return this.getCopy(_,_,_,_,this.isCompleted() ? 0 : +new Date());
     }
 
     isCompleted() {
