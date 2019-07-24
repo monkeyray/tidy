@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/tidy/static/css/main.b08d9506.chunk.css",
+    "main.css": "/tidy/static/css/main.4d39f260.chunk.css",
     "main.js": "/tidy/static/js/main.813e0e06.chunk.js",
     "main.js.map": "/tidy/static/js/main.813e0e06.chunk.js.map",
     "runtime~main.js": "/tidy/static/js/runtime~main.691d123c.js",
@@ -8,8 +8,8 @@
     "static/js/2.e2bb0b48.chunk.js": "/tidy/static/js/2.e2bb0b48.chunk.js",
     "static/js/2.e2bb0b48.chunk.js.map": "/tidy/static/js/2.e2bb0b48.chunk.js.map",
     "index.html": "/tidy/index.html",
-    "precache-manifest.b4c0f8d3405a8e623211d2338ae38059.js": "/tidy/precache-manifest.b4c0f8d3405a8e623211d2338ae38059.js",
+    "precache-manifest.b2f153f4cc3b478d077fcecdcd469bfd.js": "/tidy/precache-manifest.b2f153f4cc3b478d077fcecdcd469bfd.js",
     "service-worker.js": "/tidy/service-worker.js",
-    "static/css/main.b08d9506.chunk.css.map": "/tidy/static/css/main.b08d9506.chunk.css.map"
+    "static/css/main.4d39f260.chunk.css.map": "/tidy/static/css/main.4d39f260.chunk.css.map"
   }
 }
