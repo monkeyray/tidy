@@ -9,10 +9,12 @@ import { TaskDialog } from './components/TaskDialog/TaskDialog';
 const App: React.FC = () => {
   const [taskDialogOpen, setTaskDialogOpen] = useState(false);
 
-  const tasks = [    
+  const [tasks, setTasks] = useState([    
     new Task('Slaapkamer opruimen','Kleding uitzoeken en weggooien', +new Date()),
     new Task('Fiets repareren', 'Binnenband van achterwiel vervangen', +new Date() + (1000 * 60 * 60 * 24 * 2))
-  ];
+  ]);
+
+  console.log('calculations!!!');
 
   // Store length of a day (in ms), the current week day (monday = 0, sunday = 6) 
   // and the timestamp start for today
@@ -32,7 +34,10 @@ const App: React.FC = () => {
 
   return (<>
     <Header onAddTask={() => setTaskDialogOpen(true)}></Header>
-    <TaskDialog open={taskDialogOpen} onClose={() => setTaskDialogOpen(false)}></TaskDialog>
+    <TaskDialog open={taskDialogOpen} onClose={() => setTaskDialogOpen(false)} onSubmit={(task: Task) => {
+        setTasks([...tasks, task]);
+        setTaskDialogOpen(false);
+      }}></TaskDialog>
     
     <TaskList tasks={tasksThisWeek} title={"Tasks this week"}></TaskList>
     <TaskList tasks={upcomingTasks} title={"Upcoming tasks"}></TaskList>
