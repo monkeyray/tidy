@@ -6,11 +6,13 @@ import { Task } from "../../types/task";
 import TaskListItem from "../Task/TaskListItem";
 
 const TaskList = (props: {title:string ,tasks: Task[], onClickTask: (task: Task) => void}) => {
+    console.log('TaskList',props.title,props.tasks);
+
     return(<>
         <TaskListHeader title={props.title} />
         <div className="task-list">
             {props.tasks.map((task: Task, index: number) => 
-                <TaskListItem key={index} task={task} onClickTask={props.onClickTask} />
+                <TaskListItem key={task.id} task={task} onClickTask={props.onClickTask} />
             )}
         </div>
     </>);

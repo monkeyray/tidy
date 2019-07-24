@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './TaskListItem.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +7,10 @@ import { Task } from "../../types/task";
 
 const TaskListItem = (props: any) => {
     const [task, setTask] = useState<Task>(props.task);
+
+    useEffect(() => {
+        setTask(props.task);
+    }, [props.task]);
 
     return(<div className="task">
                 <div className="task__state" onClick={() => {

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TaskDialog.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faCalendarCheck, faClipboardList, faCheck } from '@fortawesome/free-solid-svg-icons'
-import { Task } from '../../types/task';
+import { faPen, faCalendarCheck, faClipboardList, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const TaskDialog = (props: any) => {
     const [editMode, setEditMode] = useState(false);
@@ -25,12 +24,16 @@ export const TaskDialog = (props: any) => {
             setTaskDescription('');
             setEditMode(false);
         }
-    });
+    }, [props.task]);
 
     return (
     <div className={'dialog-container' + (props.task ? ' open' : '')}>
         <div className="task-dialog">
-            <div className="dialog-header">{ editMode ? 'Adjust task' : 'Add task' }</div>
+            <div className="dialog-header">
+                { editMode ? 'Adjust task' : 'Add task' }
+                <div className="spacer"></div>
+                { editMode ? <div onClick={()=> props.onDelete(props.task)}><FontAwesomeIcon icon={faTrash} /></div> : ''}
+            </div>
             <div className="dialog-content">
                 <div className="input-container">
                     <div className="input-title">

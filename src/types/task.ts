@@ -7,8 +7,8 @@ export class Task {
     repeat: number;    
     id: number;
 
-    constructor(name: string = 'Example task name', 
-                description: string = 'Example task description',
+    constructor(name: string = '', 
+                description: string = '',
                 deadline: number = +new Date(),
                 repeat: number = 0,
                 completed: number = 0,

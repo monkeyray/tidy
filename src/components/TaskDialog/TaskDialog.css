@@ -39,6 +39,10 @@
     padding: 12px 12px;
     box-shadow: 0 0 2px 2px #0000001f;
     color: white;
+    flex-direction: row;
+}
+.spacer {
+    flex-grow: 1;
 }
 .dialog-actions {
     flex-direction: row;
