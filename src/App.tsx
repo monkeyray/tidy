@@ -33,7 +33,7 @@ const App: React.FC = () => {
         data.id
       ));
 
-      const maxId = loadedData.map((data: any) => data.id).reduce((max: number, value: number) => Math.max(max,value));
+      const maxId = loadedData.map((data: any) => data.id).reduce((max: number, value: number) => Math.max(max,value), 0);
         console.log('max id is', maxId);
         idCounter = maxId + 1;
 
