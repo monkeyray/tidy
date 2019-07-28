@@ -9,6 +9,11 @@
     top:0;
     flex-direction: row;
 }
+.version {
+    margin-left: 4px;
+    font-size: 12px;
+    margin-top: 4px;
+}
 .button {
     background: none;
     border: 1px solid white;

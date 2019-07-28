@@ -8,15 +8,12 @@ import { TaskDialog } from './components/TaskDialog/TaskDialog';
 
 const App: React.FC = () => {
   const [editTask, setEditTask] = useState<Task>();
+  const [tasks, setTasks] = useState<Task[]>([]);  
 
-  const _ = undefined;
-  let idCounter = 0;
-  const getNewId = () => idCounter++;
-
-  const [tasks, setTasks] = useState<Task[]>([    
-    // new Task('Slaapkamer opruimen','Kleding uitzoeken en weggooien', +new Date(),_,_,_,getNewId()),
-    // new Task('Fiets repareren', 'Binnenband van achterwiel vervangen', +new Date() + (1000 * 60 * 60 * 24 * 2),_,_,_,getNewId())
-  ]);  
+  const getNewId = () => {    
+    const maxId = tasks.map((data: Task) => data.id).reduce((max: number, value: number) => Math.max(max,value), 0);
+    return maxId + 1;
+  }
 
   useEffect(() => {
     console.log('load from storage');
@@ -33,18 +30,12 @@ const App: React.FC = () => {
         data.id
       ));
 
-      const maxId = loadedData.map((data: any) => data.id).reduce((max: number, value: number) => Math.max(max,value), 0);
-        console.log('max id is', maxId);
-        idCounter = maxId + 1;
-
-
-      console.log('loaded data', loadedTasks);
       setTasks(loadedTasks);
     };
   }, []);
 
   useEffect(() => {
-    console.log('save to storage');
+    console.log('console logging', tasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
@@ -59,13 +50,21 @@ const App: React.FC = () => {
   const endOfWeek = startOfCurrentDay + dayLenght;
 
   // Filter tasks to only show tasks from this week
-  const tasksThisWeek = tasks.filter(task => task.deadline > beginOfWeek && task.deadline < endOfWeek);
+  const tasksThisWeek = tasks
+                          .filter(task => task.deadline > beginOfWeek && task.deadline < endOfWeek)
+                          .sort((a: Task,b: Task) => a.deadline - b.deadline);
 
   // Show any other tasks with deadlines after the current week
-  const upcomingTasks = tasks.filter(task => task.deadline >= endOfWeek);
+  const upcomingTasks = tasks
+                        .filter(task => task.deadline >= endOfWeek)
+                        .sort((a: Task,b: Task) => a.deadline - b.deadline);
 
   const onClickTask = (task: Task) => {
     setEditTask(task);
+  }
+
+  const onCompleteTask = (task: Task) => {
+    setTasks([...(tasks.filter(t => t.id !== task.id)), task.toggleComplete()]);
   }
 
   return (<>
@@ -75,7 +74,7 @@ const App: React.FC = () => {
         onSubmit={(task: Task) => {   
           setEditTask(undefined);
           if(task.id >= 0) {
-            setTasks([...(tasks.filter(t => t.id !== task.id)), task]);
+            setTasks([...(tasks.filter(t => t.id !== task.id)), task.setId(getNewId())]);
           } else {
             setTasks([...tasks, task.setId(getNewId())]);
           }  
@@ -86,8 +85,8 @@ const App: React.FC = () => {
         }}
       ></TaskDialog>
     
-    <TaskList tasks={tasksThisWeek} title={"Tasks this week"} onClickTask={onClickTask}></TaskList>
-    <TaskList tasks={upcomingTasks} title={"Upcoming tasks"} onClickTask={onClickTask}></TaskList>
+    <TaskList tasks={tasksThisWeek} title={"Tasks this week"} onClickTask={onClickTask} onComplete={onCompleteTask}></TaskList>
+    <TaskList tasks={upcomingTasks} title={"Upcoming tasks"} onClickTask={onClickTask} onComplete={onCompleteTask}></TaskList>
   </>);
 }
 

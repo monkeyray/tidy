@@ -14,7 +14,8 @@ const TaskListItem = (props: any) => {
 
     return(<div className="task">
                 <div className="task__state" onClick={() => {
-                    setTask(task.toggleComplete());
+                    props.onComplete(task);
+                    //setTask(task.toggleComplete());
                  }}>
                     <div className="checkbox">
                         { task.isCompleted() ? <div className="animation__check" ><FontAwesomeIcon icon={faCheck} /></div> : '' }
