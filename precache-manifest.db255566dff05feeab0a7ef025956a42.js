@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4325e3e28a4bf54d44a59957f498828f",
+    "revision": "7e0bb566ab2cb2b37ac17f590dfcccbd",
     "url": "/tidy/index.html"
   },
   {
-    "revision": "686f5a3da168df4d91e7",
+    "revision": "373b27178da6baa96bce",
     "url": "/tidy/static/css/main.b3a32031.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tidy/static/js/2.9c8f418b.chunk.js"
   },
   {
-    "revision": "686f5a3da168df4d91e7",
-    "url": "/tidy/static/js/main.0efce937.chunk.js"
+    "revision": "373b27178da6baa96bce",
+    "url": "/tidy/static/js/main.fa05b1ac.chunk.js"
   },
   {
     "revision": "45ccedba99ca1f995596",
